@@ -15,6 +15,7 @@ const styles = `
 `;
 
 app.get('/', (c) => {
+  const {VITE_GIGYA_API_KEY, VITE_GIGYA_DOMAIN} = env< {GIGYA_API_KEY:string, GIGYA_DOMAIN:string}>(c)
   return c.html(html`
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +30,7 @@ app.get('/', (c) => {
   <title>Engagement Layer</title>
 </head>
 <body>
-  <gigya-js api-key="${gigyaConfig.apiKey}" domain="${gigyaConfig.domain}" class="h-full w-full">
+  <gigya-js api-key="${VITE_GIGYA_API_KEY}" domain="${VITE_GIGYA_DOMAIN}" class="h-full w-full">
     <gigya-screen slot="not-authenticated" screen-set="landing-login" container-id="login"
       data-on-success-screen="_finish">
       <template>
