@@ -1,7 +1,7 @@
 import { Hono } from 'hono';
 import { fire } from 'hono/service-worker';
 import { html } from 'hono/html';
-import { useGigya, gigyaConfig } from './lib/gigya';
+import { useGigya } from '@gigya/wc';
 
 const app = new Hono().basePath('/sw');
 
